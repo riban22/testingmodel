@@ -66,7 +66,7 @@ LERNLOG.md       # mein Lerntagebuch
 
 - [x] **Phase 0 – Setup:** Python-Umgebung, Playwright installieren, erstes Skript öffnet eine Seite und macht einen Screenshot.
 - [x] **Phase 1 – Musterstadt:** 5–6 einfache HTML-Seiten (Startseite, Bürgerservice, Ummeldeformular, ...) mit absichtlich eingebauten Fehlern plus `FEHLERLISTE.md`. Lokal über einen einfachen Webserver erreichbar.
-- [ ] **Phase 2 – Browser steuern:** Elemente einer Seite auslesen (Links, Buttons, Eingabefelder), klicken, tippen.
+- [x] **Phase 2 – Browser steuern:** Elemente einer Seite auslesen (Links, Buttons, Eingabefelder), klicken, tippen.
 - [ ] **Phase 3 – Crawler:** klickt sich selbstständig durch, merkt sich besuchte Zustände, füllt Formulare mit Testdaten, hält die Sicherheitsregeln ein. Ergebnis: Landkarte der Website.
 - [ ] **Phase 4 – Regel-Checks:** Kontrast (WCAG-Formel, computed styles, Fundort bis zur CSS-Regel), tote Links, Konsolenfehler, axe-core. Jeder Fund mit Kriterium und Fundort. → **Erster vorzeigbarer Meilenstein.**
 - [ ] **Phase 5 – Trainingsdaten:** Kriterienkatalog für 3–4 Kriterien (z. B. WCAG 1.1.1, 2.4.4, 3.3.3, ein ISO-9241-110-Prinzip). Beispiele von öffentlichen Seiten lesend sammeln, mit großem Modell vorbewerten, Stichprobe von Hand prüfen.

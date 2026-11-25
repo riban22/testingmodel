@@ -37,3 +37,21 @@
 
 **Was schwierig war**
 - Mit Unterstützung nichts Größeres. Git war neu, ist aber jetzt in den Grundzügen klar.
+
+## Phase 2 – Browser steuern (25.11.2026)
+
+**Was gebaut wurde**
+- `crawler/page_reader.py`: liest Links, Buttons und Eingabefelder (mit Label, Platzhalter, Pflichtfeld) einer Seite aus.
+- `crawler/actions.py`: klicken und tippen, mit Sicherheitsregel. Gefährliche Aktionen („absenden“, „löschen“, „bezahlen“ …) werden erkannt und übersprungen.
+- 19 pytest-Tests gegen die Musterstadt-Seiten, gemeinsame Vorbereitung in `tests/conftest.py`.
+
+**Was ich gelernt habe**
+- pytest: Tests vergleichen Erwartung und Ergebnis (`assert`), Fixtures bereiten Tests vor, `parametrize` lässt einen Test mit vielen Werten laufen.
+- Das Tool sieht eine Seite so, wie ein Screenreader sie sieht. Deshalb wurden F05 (Link ohne Text), F08 (Feld ohne Label) und F14 (Div statt Button) schon beim bloßen Auslesen sichtbar.
+- Grenzen von Regeln: Was nicht korrekt ausgezeichnet ist (F14), findet eine Suche nicht. Eine Wortliste für gefährliche Aktionen hat Falsch-Positive und Falsch-Negative. Hier könnte ein Modell später helfen.
+- Refactoring: Code umbauen, ohne das Verhalten zu ändern. Die Tests beweisen, dass nichts kaputtgegangen ist.
+- Ohne `(.venv)` vor der Eingabezeile findet PowerShell `pytest` nicht.
+- Ich lerne besser, wenn Claude baut und erklärt, statt mir Programmieraufgaben zu geben. Die CLAUDE.md ist entsprechend angepasst.
+
+**Was schwierig war**
+- Selbst Code zu schreiben. Code lesen und verstehen klappt gut.

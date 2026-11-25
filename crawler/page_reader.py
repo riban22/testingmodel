@@ -1,6 +1,18 @@
 """Liest Elemente einer geöffneten Seite aus: Links, (später) Buttons und Eingabefelder."""
 
-from playwright.sync_api import Page
+from playwright.sync_api import Locator, Page
+
+
+def element_text(element: Locator) -> str:
+    """Gibt die sichtbare Beschriftung eines Elements zurück.
+
+    Bei <input> (z. B. type="submit") steht sie im Attribut "value",
+    bei allen anderen Elementen als Text im Element.
+    """
+    tag = element.evaluate("element => element.tagName.toLowerCase()")
+    if tag == "input":
+        return element.get_attribute("value") or ""
+    return element.inner_text().strip()
 
 
 def get_links(page: Page) -> list[dict]:
@@ -35,15 +47,8 @@ def get_buttons(page: Page) -> list[dict]:
     selector = "button, input[type='submit'], input[type='button'], [role='button']"
 
     for button in page.locator(selector).all():
-        # Bei <input> steht die Beschriftung im Attribut "value", sonst als Text im Element
-        tag = button.evaluate("element => element.tagName.toLowerCase()")
-        if tag == "input":
-            text = button.get_attribute("value") or ""
-        else:
-            text = button.inner_text().strip()
-
         buttons.append({
-            "text": text,
+            "text": element_text(button),
             "type": button.get_attribute("type"),  # z. B. "submit" = schickt ein Formular ab
         })
 

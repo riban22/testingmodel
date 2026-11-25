@@ -1,40 +1,12 @@
-"""Tests für crawler/page_reader.py – geprüft wird an den Musterstadt-Seiten."""
+"""Tests für crawler/page_reader.py – geprüft wird an den Musterstadt-Seiten.
 
-from pathlib import Path
-
-import pytest
-from playwright.sync_api import sync_playwright
+Die Fixtures (browser, page, open_page) kommen aus tests/conftest.py.
+"""
 
 from crawler.page_reader import get_buttons, get_inputs, get_links
 
-# Ordner mit den Musterstadt-Seiten (relativ zu dieser Testdatei)
-MUSTERSTADT = Path(__file__).parent.parent / "musterstadt"
-
-
-@pytest.fixture(scope="module")
-def browser():
-    """Startet einmal einen Browser für alle Tests in dieser Datei."""
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        yield browser  # hier laufen die Tests
-        browser.close()
-
-
-@pytest.fixture
-def page(browser):
-    """Gibt jedem Test einen frischen Tab."""
-    page = browser.new_page()
-    yield page
-    page.close()
-
-
-def open_page(page, filename):
-    """Öffnet eine Musterstadt-Seite direkt als Datei (ohne Webserver)."""
-    page.goto((MUSTERSTADT / filename).as_uri())
-
-
-def test_get_links_startseite(page):
-    open_page(page, "index.html")
+def test_get_links_startseite(open_page):
+    page = open_page("index.html")
 
     links = get_links(page)
 
@@ -47,8 +19,8 @@ def test_get_links_startseite(page):
     ]
 
 
-def test_get_links_buergerservice(page):
-    open_page(page, "buergerservice.html")
+def test_get_links_buergerservice(open_page):
+    page = open_page("buergerservice.html")
 
     links = get_links(page)
 
@@ -62,8 +34,8 @@ def test_get_links_buergerservice(page):
     ]
 
 
-def test_get_buttons_ummelden(page):
-    open_page(page, "ummelden.html")
+def test_get_buttons_ummelden(open_page):
+    page = open_page("ummelden.html")
 
     buttons = get_buttons(page)
 
@@ -72,8 +44,8 @@ def test_get_buttons_ummelden(page):
     ]
 
 
-def test_get_buttons_kontakt_findet_div_button_nicht(page):
-    open_page(page, "kontakt.html")
+def test_get_buttons_kontakt_findet_div_button_nicht(open_page):
+    page = open_page("kontakt.html")
 
     buttons = get_buttons(page)
 
@@ -81,8 +53,8 @@ def test_get_buttons_kontakt_findet_div_button_nicht(page):
     assert buttons == []
 
 
-def test_get_inputs_kontakt(page):
-    open_page(page, "kontakt.html")
+def test_get_inputs_kontakt(open_page):
+    page = open_page("kontakt.html")
 
     inputs = get_inputs(page)
 
@@ -94,8 +66,8 @@ def test_get_inputs_kontakt(page):
     ]
 
 
-def test_get_inputs_ummelden_plz_ohne_label(page):
-    open_page(page, "ummelden.html")
+def test_get_inputs_ummelden_plz_ohne_label(open_page):
+    page = open_page("ummelden.html")
 
     inputs = get_inputs(page)
 
