@@ -65,3 +65,32 @@ So bleibt er gültig, auch wenn sich die HTML-Datei ändert.
 - Die Tabelle „Abholtage“ hat `<caption>` und `<th scope="col">`, also korrekt ausgezeichnet (im Gegensatz zu F06).
 - Die Tonnenfarben werden zusätzlich als Text genannt („graue Tonne“), Farbe ist also nicht die einzige Information.
 - Alle übrigen Texte sind bewusst in einfacher, direkter Sprache geschrieben.
+
+## kontakt.html – Kontakt
+
+| ID | Fundort | Kategorie | Kriterium | Beschreibung |
+|----|---------|-----------|-----------|--------------|
+| F14 | `#rueckruf-button` | Barrierefreiheit | WCAG 2.1.1 Tastatur (A) | „Rückruf anfordern“ ist ein `<div>` mit Klick-Funktion. Ohne `tabindex` ist er per Tab-Taste nicht erreichbar, die Rückruf-Anfrage ist per Tastatur nicht möglich. |
+| F15 | `body.kontaktseite` (alle fokussierbaren Elemente) | Barrierefreiheit | WCAG 2.4.7 Fokus sichtbar (AA) | Das CSS entfernt den Fokusrahmen (`outline: none`) auf der ganzen Seite. Bei der Bedienung per Tastatur sieht man nicht, wo man ist. |
+| F16 | `title` | Barrierefreiheit | WCAG 2.4.2 Seite mit Titel (A) | Der Seitentitel lautet nur „Seite“. Er beschreibt weder Thema noch Zweck (alle anderen Seiten: „[Thema] – Stadt Musterstadt“). |
+
+**Auswertungsregeln für diese Seite** (vorab festgelegt):
+- F14: Meldet ein Tool stattdessen WCAG 4.1.2 Name, Rolle, Wert (A), weil der `<div>` keine Rolle „button“ hat, zählt das ebenfalls als Treffer. Es ist dieselbe Ursache: falsches Element statt `<button>`.
+- F15: Ein Fund pro Seite, nicht pro Element. Meldet ein Tool den fehlenden Fokusrahmen für mehrere Elemente einzeln, zählt das zusammen als **ein** Treffer.
+
+**Bewusst kein Fehler:**
+- Die Rückruf-Felder sind bewusst kein `<form>`. So kann der Browser nichts selbst absenden.
+- Die Fehlermeldungen der Rückruf-Felder sind klar formuliert („Bitte geben Sie Ihren Namen ein.“), und die Eingaben bleiben bei einem Fehler erhalten. Das ist das Gegenbeispiel zu F09 und F10.
+- Der Link „Startseite“ kommt zweimal vor (Navigation und Text), führt aber beide Male zum selben Ziel. WCAG 2.4.4 ist also erfüllt.
+- `musterstadt.example` ist eine offiziell für Beispiele reservierte Domain, die E-Mail-Adresse ist also bewusst fiktiv.
+
+## Übersicht
+
+| Seite | Fehler | Anzahl |
+|---|---|---|
+| index.html | F01–F04 | 4 |
+| buergerservice.html | F05–F07 | 3 |
+| ummelden.html | F08–F10 | 3 |
+| abfall.html | F11–F13 | 3 |
+| kontakt.html | F14–F16 | 3 |
+| **Gesamt** | | **16** |

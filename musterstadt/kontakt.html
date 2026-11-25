@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="kontaktseite">
+  <header>
+    <img src="img/wappen.svg" width="80" height="96" alt="Wappen der Stadt Musterstadt">
+    <h1>Stadt Musterstadt</h1>
+  </header>
+
+  <nav aria-label="Hauptnavigation">
+    <ul>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="buergerservice.html">Bürgerservice</a></li>
+      <li><a href="abfall.html">Abfall und Entsorgung</a></li>
+      <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Kontakt</h2>
+
+    <h3>So erreichen Sie uns</h3>
+    <p>
+      Stadt Musterstadt, Bürgerbüro<br>
+      Rathausplatz 1, 12345 Musterstadt
+    </p>
+    <p>
+      Telefon: 0123 456789<br>
+      E-Mail: <a href="mailto:buergerbuero@musterstadt.example">buergerbuero@musterstadt.example</a>
+    </p>
+    <p>
+      Die Öffnungszeiten finden Sie auf der
+      <a href="index.html">Startseite</a>.
+    </p>
+
+    <h3>Rückruf anfordern</h3>
+    <p>
+      Hinterlassen Sie Ihren Namen und Ihre Telefonnummer.
+      Wir rufen Sie innerhalb von zwei Werktagen zurück.
+      Beide Felder sind Pflichtfelder.
+    </p>
+
+    <div id="rueckruf-fehler" class="fehlerbox" role="alert"></div>
+    <p id="rueckruf-erfolg" role="status"></p>
+
+    <div id="rueckruf-felder" class="rueckruf">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+
+      <label for="telefon">Telefonnummer</label>
+      <input type="tel" id="telefon" name="telefon" autocomplete="tel" required>
+
+      <div id="rueckruf-button" class="button">Rückruf anfordern</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Stadt Musterstadt · Rathausplatz 1 · 12345 Musterstadt</p>
+  </footer>
+
+  <script src="kontakt.js"></script>
+</body>
+</html>
