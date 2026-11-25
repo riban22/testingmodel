@@ -221,3 +221,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Projekt: erzeugte Screenshots (werden von den Skripten neu erstellt)
+screenshots/
