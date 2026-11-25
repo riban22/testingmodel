@@ -16,3 +16,15 @@ So bleibt er gültig, auch wenn sich die HTML-Datei ändert.
 | F04 | `a[href="parkausweis.html"]` | Funktion | – (toter Link) | Das Linkziel `parkausweis.html` existiert nicht (HTTP 404). |
 
 **Bewusst kein Fehler:** Das Wappen nutzt Farbe nur zur Gestaltung, nicht zur Informationsvermittlung. WCAG 1.4.1 ist also nicht verletzt.
+
+## buergerservice.html – Bürgerservice
+
+| ID | Fundort | Kategorie | Kriterium | Beschreibung |
+|----|---------|-----------|-----------|--------------|
+| F05 | `a.drucken` | Barrierefreiheit | WCAG 2.4.4 Linkzweck (im Kontext) (A), WCAG 4.1.2 Name, Rolle, Wert (A) | Der Drucken-Link enthält nur ein SVG-Symbol, ohne Text, `aria-label` oder `<title>`. Er hat keinen zugänglichen Namen, ein Screenreader liest nur „Link“ vor. |
+| F06 | `table.gebuehren` | Barrierefreiheit | WCAG 1.3.1 Info und Beziehungen (A) | Die Kopfzeile („Leistung“, „Gebühr“) ist nur fett formatiert (`<td><strong>`) statt als `<th>` ausgezeichnet. Die Beziehung zwischen Überschrift und Zellen ist technisch nicht erkennbar. |
+| F07 | `ul.leistungen li.termin` | Barrierefreiheit | WCAG 1.4.1 Benutzung von Farbe (A) | Die Info „nur mit Termin“ wird nur durch rote Schrift vermittelt. Rot `#c00000` hebt sich vom Fließtext `#222222` nur mit 2,46 : 1 ab (nötig wären 3 : 1), und es gibt keine zusätzliche Kennzeichnung. |
+
+**Bewusst kein Fehler:**
+- Die rote Schrift selbst hat auf Weiß genug Kontrast (6,48 : 1). WCAG 1.4.3 ist also erfüllt, das Problem ist nur die Unterscheidbarkeit vom übrigen Text.
+- Der Link `href="#"` beim Drucken-Symbol ist kein toter Link. Er führt auf dieselbe Seite und löst per JavaScript den Druckdialog aus.

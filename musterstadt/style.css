@@ -1,0 +1,65 @@
+/* Gemeinsames Stylesheet für alle Musterstadt-Seiten */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #222222;
+  background: #ffffff;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  background: #e8eef6;
+}
+
+nav ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 8px 32px;
+  list-style: none;
+  background: #1f4e8c;
+}
+
+nav a {
+  color: #ffffff;
+}
+
+main {
+  max-width: 800px;
+  padding: 16px 32px;
+}
+
+footer {
+  padding: 16px 32px;
+  border-top: 1px solid #cccccc;
+}
+
+/* Startseite: Öffnungszeiten */
+.hinweis {
+  color: #999999;
+}
+
+/* Bürgerservice: Leistungen, die einen Termin brauchen */
+.termin {
+  color: #c00000;
+}
+
+/* Bürgerservice: Gebührentabelle */
+.gebuehren {
+  border-collapse: collapse;
+}
+
+.gebuehren td {
+  padding: 6px 12px;
+  border: 1px solid #cccccc;
+}
+
+/* Bürgerservice: Drucken-Symbol */
+.drucken svg {
+  fill: #1f4e8c;
+}

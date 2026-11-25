@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bürgerservice – Stadt Musterstadt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="img/wappen.svg" width="80" height="96" alt="Wappen der Stadt Musterstadt">
+    <h1>Stadt Musterstadt</h1>
+  </header>
+
+  <nav aria-label="Hauptnavigation">
+    <ul>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="buergerservice.html" aria-current="page">Bürgerservice</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Bürgerservice</h2>
+
+    <p>
+      <a href="#" class="drucken" onclick="window.print(); return false;">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M6 2h12v6H6z M3 9h18v9h-3v4H6v-4H3z M8 15v5h8v-5z"/>
+        </svg>
+      </a>
+    </p>
+
+    <h3>Unsere Leistungen</h3>
+    <p>Leistungen in roter Schrift sind nur mit vorheriger Terminvereinbarung möglich.</p>
+    <ul class="leistungen">
+      <li class="termin">Personalausweis beantragen</li>
+      <li class="termin">Reisepass beantragen</li>
+      <li>Wohnsitz ummelden</li>
+      <li>Hund anmelden</li>
+      <li>Führungszeugnis beantragen</li>
+    </ul>
+
+    <h3>Gebühren</h3>
+    <table class="gebuehren">
+      <tr>
+        <td><strong>Leistung</strong></td>
+        <td><strong>Gebühr</strong></td>
+      </tr>
+      <tr>
+        <td>Personalausweis (ab 24 Jahren)</td>
+        <td>37,00 €</td>
+      </tr>
+      <tr>
+        <td>Reisepass (ab 24 Jahren)</td>
+        <td>70,00 €</td>
+      </tr>
+      <tr>
+        <td>Führungszeugnis</td>
+        <td>13,00 €</td>
+      </tr>
+      <tr>
+        <td>Wohnsitz ummelden</td>
+        <td>kostenlos</td>
+      </tr>
+    </table>
+  </main>
+
+  <footer>
+    <p>Stadt Musterstadt · Rathausplatz 1 · 12345 Musterstadt</p>
+  </footer>
+</body>
+</html>
