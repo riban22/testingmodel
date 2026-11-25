@@ -21,7 +21,7 @@ Das Projekt ist ein **Lern- und Portfolio-Projekt**. Der Weg ist genauso wichtig
 1. **Kleine Schritte.** Pro Schritt eine Datei oder eine Funktion. Keine großen Würfe auf einmal.
 2. **Erst erklären, dann bauen.** Bevor du etwas Neues anlegst: kurz in 2–4 Sätzen sagen, was du vorhast und warum. Bei größeren Schritten auf mein OK warten.
 3. **Danach erklären.** Nach jedem Schritt kurz zusammenfassen, was der neue Code macht. Neue Fachbegriffe einmal einfach erklären.
-4. **Mich selbst machen lassen.** Wo es sinnvoll ist, gib mir eine kleine Aufgabe, z. B. einen Testfall schreiben oder einen Wert ändern und schauen, was passiert. Hilf, wenn ich hänge.
+4. **Du baust, ich verstehe.** Keine Übungsaufgaben und kein Code zum Selberschreiben. Du schreibst den Code und erklärst ihn so, dass ich ihn verstehe und selbst erklären kann. Befehle im Terminal (Tests, Git) führe ich gern selbst aus.
 5. **Testen nach jedem Schritt.** Zeig mir, wie ich prüfe, ob es funktioniert, und lass es laufen.
 6. **Commit vorschlagen.** Wenn ein Schritt funktioniert: einen Commit mit klarer deutscher Nachricht vorschlagen und nach meinem OK zu GitHub pushen.
 7. **Lernlog pflegen.** Am Ende jeder Etappe mit mir zusammen einen kurzen Eintrag in `LERNLOG.md` schreiben: Was wurde gebaut, was habe ich gelernt, was war schwierig.

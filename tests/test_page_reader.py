@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from playwright.sync_api import sync_playwright
 
-from crawler.page_reader import get_links
+from crawler.page_reader import get_buttons, get_links
 
 # Ordner mit den Musterstadt-Seiten (relativ zu dieser Testdatei)
 MUSTERSTADT = Path(__file__).parent.parent / "musterstadt"
@@ -46,6 +46,7 @@ def test_get_links_startseite(page):
         {"text": "Mehr erfahren", "href": "parkausweis.html"},
     ]
 
+
 def test_get_links_buergerservice(page):
     open_page(page, "buergerservice.html")
 
@@ -56,6 +57,25 @@ def test_get_links_buergerservice(page):
         {"text": "Bürgerservice", "href": "buergerservice.html"},
         {"text": "Abfall und Entsorgung", "href": "abfall.html"},
         {"text": "Kontakt", "href": "kontakt.html"},
-        {"text": "", "href": "#"},
+        {"text": "", "href": "#"},  # Drucker-Symbol ohne Text (F05)
         {"text": "Wohnsitz online ummelden", "href": "ummelden.html"},
     ]
+
+
+def test_get_buttons_ummelden(page):
+    open_page(page, "ummelden.html")
+
+    buttons = get_buttons(page)
+
+    assert buttons == [
+        {"text": "Verbindlich absenden", "type": "submit"},
+    ]
+
+
+def test_get_buttons_kontakt_findet_div_button_nicht(page):
+    open_page(page, "kontakt.html")
+
+    buttons = get_buttons(page)
+
+    # "Rückruf anfordern" ist nur ein <div> (F14) und wird deshalb NICHT gefunden
+    assert buttons == []
