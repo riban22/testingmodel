@@ -18,6 +18,7 @@ header {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap; /* bricht auf schmalen Bildschirmen um (WCAG 1.4.10) */
   gap: 24px;
   margin: 0;
   padding: 8px 32px;
