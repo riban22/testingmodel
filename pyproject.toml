@@ -1,0 +1,4 @@
+# Projekteinstellungen. Bisher nur für pytest.
+[tool.pytest.ini_options]
+testpaths = ["tests"]   # hier liegen die Tests
+pythonpath = ["."]      # damit "from crawler import ..." in den Tests funktioniert
