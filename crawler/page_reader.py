@@ -48,3 +48,42 @@ def get_buttons(page: Page) -> list[dict]:
         })
 
     return buttons
+
+
+# JavaScript, das im Browser läuft: holt den Text des zugehörigen <label>.
+# element.labels enthält alle Labels, die per for="..." mit dem Feld verbunden sind.
+_LABEL_SCRIPT = """
+element => {
+    if (element.labels && element.labels.length > 0) {
+        return element.labels[0].innerText.trim();
+    }
+    return null;
+}
+"""
+
+
+def get_inputs(page: Page) -> list[dict]:
+    """Gibt alle Eingabefelder der Seite zurück, mit Beschriftung und Eigenschaften.
+
+    Buttons (<input type="submit"> usw.) und versteckte Felder zählen nicht dazu.
+
+    Beispiel für ein Ergebnis:
+    [{"name": "vorname", "type": "text", "label": "Vorname",
+      "placeholder": None, "required": True}, ...]
+    """
+    inputs = []
+    selector = (
+        "input:not([type='submit']):not([type='button']):not([type='hidden']),"
+        " select, textarea"
+    )
+
+    for field in page.locator(selector).all():
+        inputs.append({
+            "name": field.get_attribute("name"),
+            "type": field.get_attribute("type"),
+            "label": field.evaluate(_LABEL_SCRIPT),           # None = kein Label vorhanden
+            "placeholder": field.get_attribute("placeholder"),  # grauer Text im leeren Feld
+            "required": field.get_attribute("required") is not None,  # Pflichtfeld?
+        })
+
+    return inputs
