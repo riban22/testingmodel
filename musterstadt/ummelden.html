@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wohnsitz online ummelden – Stadt Musterstadt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="img/wappen.svg" width="80" height="96" alt="Wappen der Stadt Musterstadt">
+    <h1>Stadt Musterstadt</h1>
+  </header>
+
+  <nav aria-label="Hauptnavigation">
+    <ul>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="buergerservice.html">Bürgerservice</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Wohnsitz online ummelden</h2>
+    <p>
+      Mit diesem Formular melden Sie Ihren neuen Wohnsitz in Musterstadt an.
+      Bitte melden Sie sich innerhalb von zwei Wochen nach dem Einzug an.
+      Alle Felder sind Pflichtfelder.
+    </p>
+
+    <div id="fehler" class="fehlerbox" role="alert"></div>
+    <p id="erfolg" role="status"></p>
+
+    <form id="ummelde-form" novalidate>
+      <fieldset>
+        <legend>Angaben zur Person</legend>
+
+        <label for="vorname">Vorname</label>
+        <input type="text" id="vorname" name="vorname" autocomplete="given-name" required data-name="Vorname">
+
+        <label for="nachname">Nachname</label>
+        <input type="text" id="nachname" name="nachname" autocomplete="family-name" required data-name="Nachname">
+
+        <label for="geburtsdatum">Geburtsdatum</label>
+        <input type="date" id="geburtsdatum" name="geburtsdatum" autocomplete="bday" required data-name="Geburtsdatum">
+      </fieldset>
+
+      <fieldset>
+        <legend>Neue Anschrift</legend>
+
+        <label for="strasse">Straße und Hausnummer</label>
+        <input type="text" id="strasse" name="strasse" autocomplete="street-address" required data-name="Straße und Hausnummer">
+
+        <input type="text" id="plz" name="plz" autocomplete="postal-code" inputmode="numeric" placeholder="Postleitzahl" required data-name="Postleitzahl">
+
+        <label for="ort">Ort</label>
+        <input type="text" id="ort" name="ort" autocomplete="address-level2" required data-name="Ort">
+
+        <label for="einzugsdatum">Einzugsdatum</label>
+        <input type="date" id="einzugsdatum" name="einzugsdatum" required data-name="Einzugsdatum">
+      </fieldset>
+
+      <div class="bestaetigung">
+        <input type="checkbox" id="bestaetigt" name="bestaetigt" required data-name="Bestätigung">
+        <label for="bestaetigt">Ich bestätige, dass meine Angaben richtig und vollständig sind.</label>
+      </div>
+
+      <button type="submit">Verbindlich absenden</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Stadt Musterstadt · Rathausplatz 1 · 12345 Musterstadt</p>
+  </footer>
+
+  <script src="ummelden.js"></script>
+</body>
+</html>
