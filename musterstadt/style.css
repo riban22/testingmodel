@@ -50,14 +50,29 @@ footer {
   color: #c00000;
 }
 
-/* Bürgerservice: Gebührentabelle */
-.gebuehren {
+/* Tabellen (Gebühren, Abholtage) */
+table {
   border-collapse: collapse;
 }
 
-.gebuehren td {
+td,
+th {
   padding: 6px 12px;
   border: 1px solid #cccccc;
+  text-align: left;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+/* Abfall: Zwischentitel, sieht aus wie eine h3-Überschrift */
+.zwischentitel {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 1em 0;
 }
 
 /* Bürgerservice: Drucken-Symbol */

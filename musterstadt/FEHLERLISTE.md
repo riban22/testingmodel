@@ -47,3 +47,21 @@ So bleibt er gültig, auch wenn sich die HTML-Datei ändert.
 - Die Fehlermeldungen nennen das betroffene Feld beim Namen. Die Fehler-*Erkennung* (3.3.1) ist also vorhanden, nur der Korrekturvorschlag fehlt.
 - Alle übrigen Felder haben ein `<label>` und, wo es um eigene Daten geht, ein passendes `autocomplete` (WCAG 1.3.5).
 - Der Platzhaltertext ist mit `#595959` ausreichend kontrastreich (7 : 1).
+
+## abfall.html – Abfall und Entsorgung
+
+| ID | Fundort | Kategorie | Kriterium | Beschreibung |
+|----|---------|-----------|-----------|--------------|
+| F11 | `p.sperrmuell` | Usability / Verständlichkeit | ISO 9241-110 Selbstbeschreibungsfähigkeit, WCAG 3.1.5 Leseniveau (AAA) | Der Sperrmüll-Text ist ein einziger Schachtelsatz in Amtssprache („Inanspruchnahme“, „fernmündlich“, „unter Vermeidung einer Beeinträchtigung“). Die eigentliche Handlungsanweisung (anrufen, 14 Tage vorher, bis 6 Uhr rausstellen) ist kaum herauszulesen. |
+| F12 | `p.zwischentitel` | Barrierefreiheit | WCAG 1.3.1 Info und Beziehungen (A), Failure F2 | „Sperrmüll“ sieht aus wie eine Überschrift (wie die `h3`), ist aber nur ein formatierter Absatz. In der Überschriftenstruktur fehlt der Abschnitt. |
+| F13 | `abfall.js` | Funktion | – (Konsolenfehler) | Tippfehler `querySelectorAl` statt `querySelectorAll` führt beim Laden zu einem `TypeError`. Der Hinweis „(heute)“ in der Tabelle erscheint deshalb nie. |
+
+**Auswertungsregeln für diese Seite** (vorab festgelegt):
+- F11: Als Treffer zählt jede Meldung, die den Absatz als schwer verständlich einstuft, unabhängig davon, ob sie ISO 9241-110, WCAG 3.1.5 oder „Leichte/einfache Sprache“ nennt.
+- F13: Ein Hinweis, dass „(heute)“ fehlt, ist dieselbe Ursache und zählt nicht als zusätzlicher Fund.
+
+**Bewusst kein Fehler:**
+- Die Überschriftenebenen (`h1` → `h2` → `h3`) sind lückenlos.
+- Die Tabelle „Abholtage“ hat `<caption>` und `<th scope="col">`, also korrekt ausgezeichnet (im Gegensatz zu F06).
+- Die Tonnenfarben werden zusätzlich als Text genannt („graue Tonne“), Farbe ist also nicht die einzige Information.
+- Alle übrigen Texte sind bewusst in einfacher, direkter Sprache geschrieben.
